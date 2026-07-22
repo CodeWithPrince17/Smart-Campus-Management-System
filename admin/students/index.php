@@ -1,0 +1,1 @@
+<a href="add.php">+ Add Student</a>
