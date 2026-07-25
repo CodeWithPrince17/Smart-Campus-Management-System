@@ -1,17 +1,15 @@
 <?php
 session_start();
+
 include "../../includes/database.php";
+include "../../includes/header.php";
+include "../../includes/sidebar.php";
 
 $sql = "SELECT * FROM students";
 $result = mysqli_query($conn, $sql);
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Management</title>
-</head>
-<body>
+<div class="main-content">
 
 <h1>Student Management</h1>
 
@@ -31,41 +29,25 @@ $result = mysqli_query($conn, $sql);
     <th>Action</th>
 </tr>
 
-<?php
-
-while($row = mysqli_fetch_assoc($result))
-{
-?>
+<?php while($row = mysqli_fetch_assoc($result)) { ?>
 
 <tr>
 
 <td><?php echo $row['student_id']; ?></td>
-
 <td><?php echo $row['roll_number']; ?></td>
-
 <td><?php echo $row['full_name']; ?></td>
-
 <td><?php echo $row['email']; ?></td>
-
 <td><?php echo $row['department']; ?></td>
-
 <td><?php echo $row['semester']; ?></td>
 
 <td>
-
-<a href="edit.php?id=<?php echo $row['student_id']; ?>">Edit</a>
-
-|
-
-<a href="delete.php?id=<?php echo $row['student_id']; ?>">Delete</a>
-
+    <a href="edit.php?student_id=<?php echo $row['student_id']; ?>">Edit</a> |
+    <a href="delete.php?student_id=<?php echo $row['student_id']; ?>">Delete</a>
 </td>
 
 </tr>
 
-<?php
-}
-?>
+<?php } ?>
 
 </table>
 
@@ -73,5 +55,8 @@ while($row = mysqli_fetch_assoc($result))
 
 <a href="../dashboard.php">Back to Dashboard</a>
 
-</body>
-</html>
+</div>
+
+<?php
+include "../../includes/footer.php";
+?>
