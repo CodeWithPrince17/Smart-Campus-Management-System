@@ -11,49 +11,84 @@ $result = mysqli_query($conn, $sql);
 
 <div class="main-content">
 
-<h1>Student Management</h1>
+    <h1>👨‍🎓 Student Management</h1>
 
-<a href="add.php">+ Add Student</a>
+    <br>
 
-<br><br>
+    <input
+        type="text"
+        class="search-box"
+        placeholder="🔍 Search Student...">
 
-<table border="1" cellpadding="10">
+    <a href="add.php" class="btn btn-add">
+        + Add Student
+    </a>
 
-<tr>
-    <th>ID</th>
-    <th>Roll No</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Department</th>
-    <th>Semester</th>
-    <th>Action</th>
-</tr>
+    <div class="table-container">
 
-<?php while($row = mysqli_fetch_assoc($result)) { ?>
+        <table class="student-table">
 
-<tr>
+            <thead>
 
-<td><?php echo $row['student_id']; ?></td>
-<td><?php echo $row['roll_number']; ?></td>
-<td><?php echo $row['full_name']; ?></td>
-<td><?php echo $row['email']; ?></td>
-<td><?php echo $row['department']; ?></td>
-<td><?php echo $row['semester']; ?></td>
+                <tr>
+                    <th>ID</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Semester</th>
+                    <th>Action</th>
+                </tr>
 
-<td>
-    <a href="edit.php?student_id=<?php echo $row['student_id']; ?>">Edit</a> |
-    <a href="delete.php?student_id=<?php echo $row['student_id']; ?>">Delete</a>
-</td>
+            </thead>
 
-</tr>
+            <tbody>
 
-<?php } ?>
+                <?php while($row = mysqli_fetch_assoc($result)) { ?>
 
-</table>
+                <tr>
 
-<br>
+                    <td><?php echo $row['student_id']; ?></td>
 
-<a href="../dashboard.php">Back to Dashboard</a>
+                    <td><?php echo $row['roll_number']; ?></td>
+
+                    <td><?php echo $row['full_name']; ?></td>
+
+                    <td><?php echo $row['email']; ?></td>
+
+                    <td><?php echo $row['department']; ?></td>
+
+                    <td><?php echo $row['semester']; ?></td>
+
+                    <td>
+
+                        <a
+                            href="edit.php?student_id=<?php echo $row['student_id']; ?>"
+                            class="btn btn-edit">
+                            ✏ Edit
+                        </a>
+
+                        <a
+                            href="delete.php?student_id=<?php echo $row['student_id']; ?>"
+                            class="btn btn-delete">
+                            🗑 Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                <?php } ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <a href="../dashboard.php">← Back to Dashboard</a>
 
 </div>
 
