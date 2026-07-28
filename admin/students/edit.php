@@ -14,22 +14,30 @@ $student = mysqli_fetch_assoc($result);
 if(isset($_POST['update']))
 {
     $roll_number = $_POST['roll_number'];
-$full_name = $_POST['full_name'];
-$email = $_POST['email'];
-$department = $_POST['department'];
-$semester = $_POST['semester'];
-$sql = "UPDATE students SET
+    $full_name = $_POST['full_name'];
+    $email = $_POST['email'];
+    $department = $_POST['department'];
+    $semester = $_POST['semester'];
+
+    $sql = "UPDATE students SET
             roll_number='$roll_number',
             full_name='$full_name',
             email='$email',
             department='$department',
             semester='$semester'
-        WHERE student_id='$student_id'";
+            WHERE student_id='$student_id'";
 
-mysqli_query($conn, $sql);
-header("Location: index.php");
-exit();
+    $result = mysqli_query($conn, $sql);
 
+    if($result)
+    {
+        header("Location: index.php");
+        exit();
+    }
+    else
+    {
+        echo "Update Failed!";
+    }
 }
 ?>
 

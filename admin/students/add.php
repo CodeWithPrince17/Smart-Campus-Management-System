@@ -59,13 +59,13 @@ if(isset($_POST['save_student']))
     <input type="email" name="email" required><br><br>
 
     <label>Phone</label><br>
-    <input type="text" name="phone"><br><br>
+    <input type="text" name="phone" required><br><br>
 
     <label>Department</label><br>
-    <input type="text" name="department"><br><br>
+    <input type="text" name="department" required><br><br>
 
     <label>Semester</label><br>
-    <input type="number" name="semester"><br><br>
+    <input type="number" name="semester" required><br><br>
 
     <label>Gender</label><br>
     <select name="gender">
@@ -88,7 +88,7 @@ if(isset($_POST['save_student']))
 
 <br>
 
-<a href="index.php">← Back to Student List</a>
+<a href="index.php"> ← Back to Student List </a>
 
 </body>
 </html>

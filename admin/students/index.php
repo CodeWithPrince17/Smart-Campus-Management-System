@@ -15,10 +15,21 @@ $result = mysqli_query($conn, $sql);
 
     <br>
 
+   <form method="GET">
+
     <input
         type="text"
+        name="search"
         class="search-box"
-        placeholder="🔍 Search Student...">
+        placeholder="🔍 Search by Name, Roll No or Department"
+        value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+
+    <input
+        type="submit"
+        value="Search"
+        class="btn btn-edit">
+
+</form>
 
     <a href="add.php" class="btn btn-add">
         + Add Student
