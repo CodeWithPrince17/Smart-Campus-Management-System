@@ -5,7 +5,20 @@ include "../../includes/database.php";
 include "../../includes/header.php";
 include "../../includes/sidebar.php";
 
-$sql = "SELECT * FROM students";
+if(isset($_GET['search']) && $_GET['search'] != "")
+{
+    $search = $_GET['search'];
+
+    $sql = "SELECT * FROM students
+            WHERE full_name LIKE '%$search%'
+            OR roll_number LIKE '%$search%'
+            OR department LIKE '%$search%'";
+}
+else
+{
+    $sql = "SELECT * FROM students";
+}
+
 $result = mysqli_query($conn, $sql);
 ?>
 
