@@ -12,9 +12,9 @@ if(isset($_POST['delete']))
 
     mysqli_query($conn, $sql);
 
-    header("Location: index.php");
-
-    exit();
+   header("Location: index.php?message=deleted");
+    
+   exit();
 }
 
 $sql = "SELECT * FROM students WHERE student_id='$student_id'";

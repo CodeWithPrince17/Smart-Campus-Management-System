@@ -21,14 +21,15 @@ if(isset($_POST['save_student']))
     VALUES
     ('$full_name', '$roll_number', '$email', '$phone', '$department', '$semester', '$gender', '$dob', '$address')";
 
-    if(mysqli_query($conn, $sql))
-    {
-        echo "<script>alert('Student Added Successfully');</script>";
-    }
-    else
-    {
-        echo "<script>alert('Error Adding Student');</script>";
-    }
+   if(mysqli_query($conn, $sql))
+{
+    header("Location: index.php?message=added");
+    exit();
+}
+else
+{
+    echo "<script>alert('Error Adding Student');</script>";
+}
 
 }
 
@@ -44,8 +45,10 @@ if(isset($_POST['save_student']))
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-
-<h1>Add Student</h1>
+    
+<div class="main-content">
+    <div class="form-card">
+       <h2>➕ Add Student</h2>
 
 <form action="" method="POST">
 
@@ -80,11 +83,15 @@ if(isset($_POST['save_student']))
     <label>Address</label><br>
     <textarea name="address"></textarea><br><br>
 
-    <button type="submit" name="save_student">
-        Save Student
-    </button>
+    <input
+    type="submit"
+    name="submit"
+    value="Add Student"
+    class="btn btn-add">
 
 </form>
+</div>
+</div>
 
 <br>
 

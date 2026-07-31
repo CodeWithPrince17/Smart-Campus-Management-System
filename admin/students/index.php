@@ -23,6 +23,25 @@ $result = mysqli_query($conn, $sql);
 ?>
 
 <div class="main-content">
+    <?php
+if(isset($_GET['message']))
+{
+    if($_GET['message'] == "added")
+    {
+        echo "<div class='success-message'>✅ Student added successfully.</div>";
+    }
+
+    if($_GET['message'] == "updated")
+    {
+        echo "<div class='success-message'>✏️ Student updated successfully.</div>";
+    }
+
+    if($_GET['message'] == "deleted")
+    {
+        echo "<div class='success-message'>🗑️ Student deleted successfully.</div>";
+    }
+}
+?>
 
     <h1>👨‍🎓 Student Management</h1>
 

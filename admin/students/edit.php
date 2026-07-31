@@ -31,8 +31,8 @@ if(isset($_POST['update']))
 
     if($result)
     {
-        header("Location: index.php");
-        exit();
+       header("Location: index.php?message=updated");
+exit();
     }
     else
     {
@@ -42,9 +42,9 @@ if(isset($_POST['update']))
 ?>
 
 <div class="main-content">
+    <div class="form-card">
 
-    <h1>Edit Student</h1>
-
+    <h2> ✏️ Edit Student</h2>
     <form method="POST">
         <label>Roll Number</label><br>
 <input type="text" name="roll_number" value="<?php echo $student['roll_number']; ?>">
@@ -66,12 +66,17 @@ if(isset($_POST['update']))
 <input type="number" name="semester" value="<?php echo $student['semester']; ?>">
 <br><br>
 
-<input type="submit" name="update" value="Update Student">
+<input
+    type="submit"
+    name="update"
+    value="Update Student"
+    class="btn btn-add">
 
         <!-- Form fields will go here -->
 
     </form>
 
+</div>
 </div>
 
 <?php
