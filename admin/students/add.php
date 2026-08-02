@@ -48,7 +48,7 @@ else
     
 <div class="main-content">
     <div class="form-card">
-       <h2>➕ Add Student</h2>
+       <h2>➕ Add  Student</h2>
 
 <form action="" method="POST">
 

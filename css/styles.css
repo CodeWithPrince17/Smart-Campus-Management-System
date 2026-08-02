@@ -126,7 +126,7 @@ body{
 }
 
 .btn-add{
-    background:#22c55e;
+    background: rgb(34, 245, 34);
 }
 
 .btn-edit{
@@ -143,14 +143,14 @@ body{
 .search-box{
     width:300px;
     padding:10px;
-    border:1px solid #ccc;
+    border:1px solid #ebcfcf;
     border-radius:6px;
     margin-bottom:20px;
     outline:none;
 }
 
 .search-box:focus{
-    border-color:#2563eb;
+    border-color:#02112d;
 }
 
 .btn-edit{
